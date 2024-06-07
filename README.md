@@ -45,18 +45,6 @@
 ![Login](assets/uml.png)
 
 
-### Component Diagram
-![Login](assets/component.png)
-
-
-### Container Diagram
-![Login](assets/container.png)
-
-
-### Context Diagram
-![Login](assets/context.png)
-
-
 ### Sequence Diagram 
 ![Login](assets/sequence.png)
 
