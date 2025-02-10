@@ -59,9 +59,7 @@ jobs:
         run: sudo apt-get install -y libxml2-utils
         shell: bash
 
-      - name: Perform Maven clean, test, and packaging
-        run: mvn clean package -Djava.awt.headless=true
-        working-directory: ./recipe-cost-calculator-app
+      
 
       - name: Generate Folders
         run: |
@@ -112,9 +110,6 @@ jobs:
       - name: Run genhtml
         run: genhtml ./recipe-cost-calculator-app/target/site/coverxygen/lcov.info --legend --title "Documentation Coverage Report" -o recipe-cost-calculator-app/target/site/coverxygen
 
-      - name: Perform Maven site generation
-        run: mvn site
-        working-directory: ./recipe-cost-calculator-app
 
       #- name: Archive Coverage Report
       #  uses: actions/upload-artifact@v2
@@ -130,7 +125,7 @@ jobs:
         id: create_common_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -162,7 +157,7 @@ jobs:
           asset_name: recipe-cost-calculator-app.jar
           asset_content_type: application/jar
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Test Coverage Report
         uses: actions/upload-release-asset@v1
@@ -172,7 +167,7 @@ jobs:
           asset_name: test-coverage-report.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Doc Coverage Report
         uses: actions/upload-release-asset@v1
@@ -182,7 +177,7 @@ jobs:
           asset_name: doc-coverage-report.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Doxygen Documentation
         uses: actions/upload-release-asset@v1
@@ -192,7 +187,7 @@ jobs:
           asset_name: app-documents.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Web Site
         uses: actions/upload-release-asset@v1
@@ -202,12 +197,12 @@ jobs:
           asset_name: app-website.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Deploy Web Site
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          github_token: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           publish_dir: ./recipe-cost-calculator-app/target/site
           
           
