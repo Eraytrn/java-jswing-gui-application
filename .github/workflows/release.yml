@@ -110,9 +110,6 @@ jobs:
       - name: Run genhtml
         run: genhtml ./recipe-cost-calculator-app/target/site/coverxygen/lcov.info --legend --title "Documentation Coverage Report" -o recipe-cost-calculator-app/target/site/coverxygen
 
-      - name: Perform Maven site generation
-        run: mvn site
-        working-directory: ./recipe-cost-calculator-app
 
       #- name: Archive Coverage Report
       #  uses: actions/upload-artifact@v2
