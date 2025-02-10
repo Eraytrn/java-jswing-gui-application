@@ -59,9 +59,7 @@ jobs:
         run: sudo apt-get install -y libxml2-utils
         shell: bash
 
-      - name: Perform Maven clean, test, and packaging
-        run: mvn clean package -Djava.awt.headless=true
-        working-directory: ./recipe-cost-calculator-app
+      
 
       - name: Generate Folders
         run: |
