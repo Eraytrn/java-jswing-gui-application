@@ -125,7 +125,7 @@ jobs:
         id: create_common_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -157,7 +157,7 @@ jobs:
           asset_name: recipe-cost-calculator-app.jar
           asset_content_type: application/jar
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Test Coverage Report
         uses: actions/upload-release-asset@v1
@@ -167,7 +167,7 @@ jobs:
           asset_name: test-coverage-report.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Doc Coverage Report
         uses: actions/upload-release-asset@v1
@@ -177,7 +177,7 @@ jobs:
           asset_name: doc-coverage-report.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Doxygen Documentation
         uses: actions/upload-release-asset@v1
@@ -187,7 +187,7 @@ jobs:
           asset_name: app-documents.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Upload Web Site
         uses: actions/upload-release-asset@v1
@@ -197,12 +197,12 @@ jobs:
           asset_name: app-website.tar.gz
           asset_content_type: application/gzip
         env:
-          GITHUB_TOKEN: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           
       - name: Deploy Web Site
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.RECIPE_MAVEN_TOKEN }}
+          github_token: ${{ secrets.JAVA_SWING_GUI_APPLICATION_TOKEN }}
           publish_dir: ./recipe-cost-calculator-app/target/site
           
           
